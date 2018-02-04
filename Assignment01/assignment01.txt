@@ -1,0 +1,86 @@
+john@john-desktop:~$ pwd
+/home/john
+john@john-desktop:~$ mkdir test
+john@john-desktop:~$ cd test
+john@john-desktop:~/test$ mkdir test2 test3
+john@john-desktop:~/test$ ls
+test2  test3
+john@john-desktop:~/test$ rmdir test2
+john@john-desktop:~/test$ ls
+test3
+john@john-desktop:~/test$ mkdir -p test2/test2.1/test2.2
+john@john-desktop:~/test$ ls
+test2  test3
+john@john-desktop:~/test$ ls -lR
+.:
+total 8
+drwxrwxr-x 3 john john 4096 Jan  9 16:38 test2
+drwxrwxr-x 2 john john 4096 Jan  9 16:36 test3
+
+./test2:
+total 4
+drwxrwxr-x 3 john john 4096 Jan  9 16:38 test2.1
+
+./test2/test2.1:
+total 4
+drwxrwxr-x 2 john john 4096 Jan  9 16:38 test2.2
+
+./test2/test2.1/test2.2:
+total 0
+
+./test3:
+total 0
+john@john-desktop:~/test$ pushd test2/test2.1/test2.2/
+~/test/test2/test2.1/test2.2 ~/test
+john@john-desktop:~/test/test2/test2.1/test2.2$ pushd
+~/test ~/test/test2/test2.1/test2.2
+john@john-desktop:~/test$ popd
+~/test/test2/test2.1/test2.2
+john@john-desktop:~/test/test2/test2.1/test2.2$ cd ~/test/
+john@john-desktop:~/test$ touch example.txt
+john@john-desktop:~/test$ ls
+example.txt  test2  test3
+john@john-desktop:~/test$ cp example.txt example2.txt
+john@john-desktop:~/test$ ls
+example2.txt  example.txt  test2  test3
+john@john-desktop:~/test$ cp example.txt test2/
+john@john-desktop:~/test$ ls test2
+example.txt  test2.1
+john@john-desktop:~/test$ mv example.txt oldexample.txt 
+john@john-desktop:~/test$ ls
+example2.txt  oldexample.txt  test2  test3
+john@john-desktop:~/test$ mv oldexample.txt test3/
+john@john-desktop:~/test$ ls
+example2.txt  test2  test3
+john@john-desktop:~/test$ ls test3
+oldexample.txt
+john@john-desktop:~/test$ atom example2.txt 
+john@john-desktop:~/test$ less example2.txt 
+john@john-desktop:~/test$ more example2.txt 
+
+Hello World!
+It is a nice day today!
+Hort 503 is a fun class!
+john@john-desktop:~/test$ cat example2.txt 
+
+Hello World!
+It is a nice day today!
+Hort 503 is a fun class!
+john@john-desktop:~/test$ cd test3
+john@john-desktop:~/test/test3$ atom oldexample.txt 
+john@john-desktop:~/test/test3$ cd ..
+john@john-desktop:~/test$ cat example2.txt test3/oldexample.txt 
+
+Hello World!
+It is a nice day today!
+Hort 503 is a fun class!
+I hope to improve my coding skills in this class!
+john@john-desktop:~/test$ cat test3/oldexample.txt 
+I hope to improve my coding skills in this class!
+john@john-desktop:~/test$ rm example2.txt 
+john@john-desktop:~/test$ ls
+test2  test3
+john@john-desktop:~/test$ rm -r test3
+john@john-desktop:~/test$ ls
+test2
+john@john-desktop:~/test$
