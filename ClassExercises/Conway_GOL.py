@@ -20,7 +20,7 @@ class cell():
 #test_cell(45)
 #test_cell(0)
 
-
+# %%
 class grid():
 
     def __init__(self, rows, cols):
@@ -122,8 +122,7 @@ class grid():
             #print('')
 
                 #print(neighbors_state)
-                #Get status of neighbors:
-
+                #Get status of neighbors
 
     def set_cell(self, x, y, state):
         self.grid[x][y] = cell(x,y,state)
