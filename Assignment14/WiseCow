@@ -1,0 +1,2 @@
+#This is my automatic task that produces a wise cow
+fortune | cowsay | lolcat
